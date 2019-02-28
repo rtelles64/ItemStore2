@@ -1,5 +1,5 @@
 # This template provides a RESTful structure
-
+import os
 # populate requirements.txt info by using
 # $ pip freeze
 from flask import Flask
@@ -21,7 +21,10 @@ app = Flask(__name__)
 #       - MySQL
 #       - PostGre SQL
 #       - Oracle
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'  # lives in root
+
+# .get(os environment variable, default variable)
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL',
+                                        'sqlite:///data.db')  # lives in root
 
 # turn off Flask SQLAlchemy modification tracker
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
