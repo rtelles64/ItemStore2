@@ -1,4 +1,8 @@
 # This template provides a RESTful structure
+
+# populate requirements.txt info by using
+# $ pip freeze > requirements.txt
+# in active virtual environment
 from flask import Flask
 from flask_restful import Api
 from flask_jwt import JWT
