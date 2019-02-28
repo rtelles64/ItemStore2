@@ -30,11 +30,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = "81h2459gpasiubdglkqwy97ryqhou!@##%@#^"
 api = Api(app)  # easily add resources to our API
 
-# SQLAlchemy can create our data.db file for us
-@app.before_first_request
-def create_tables():
-    db.create_all()
-
 jwt = JWT(app, authenticate, identity)  # /auth
 
 # ADD RESOURCE (with route)
